@@ -1,5 +1,9 @@
 $(document).ready(function () {
-  printAll()
+  printAll();
+  $("button").click(function () {
+    var impegno = $("input").val();
+    nuovoImpegno(impegno)
+  });
 })
 // funzione stampa
 function printAll() {
@@ -15,6 +19,23 @@ function printAll() {
         var html = template(context);
         $("ul").append(html)
       }
+    },
+    error : function (error) {
+      alerr("errore"+error)
+    }
+  })
+}
+// inserimento dato
+function nuovoImpegno(testo) {
+  $.ajax({
+    url :"http://157.230.17.132:3008/todos",
+    method : "POST",
+    data : {
+      text : testo,
+    },
+    success :function (data) {
+      $("ul li").remove();
+      printAll()
     },
     error : function (error) {
       alerr("errore"+error)

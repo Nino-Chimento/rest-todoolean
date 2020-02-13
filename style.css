@@ -1,0 +1,16 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  border-top: 1px solid black;
+  min-height: 50px;
+  background-color: lightgrey;
+  position: relative;
+}
+span {
+  position: absolute;
+  top :0;
+  right: 10px;
+}

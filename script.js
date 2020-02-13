@@ -9,10 +9,20 @@ $(document).ready(function () {
     cancella(idImpegno)
   })
   $(document).on("click","li",function () {
-    $(this).children("input").removeClass("display-none")
-    console.log("N");
+     $(this).children("input").removeClass("display-none");
+
+
+  })
+  $(document).on("keypress","li input",function () {
+    if(event.which == 13 || event.keyCode == 13){
+      var id = $(this).parents("li").attr("data-id")
+      var nuovoTesto = $(this).val();
+      modifica(id,nuovoTesto)
+      console.log(id + nuovoTesto);
+    }
   })
 })
+
 // funzione stampa
 function printAll() {
   $.ajax({
@@ -55,6 +65,23 @@ function cancella(id) {
   $.ajax({
     url :"http://157.230.17.132:3008/todos/" + id,
     method : "DELETE",
+    success :function (data) {
+      $("ul li").remove();
+      printAll()
+    },
+    error : function (error) {
+      alert("errore"+error)
+    }
+  })
+}
+// funzione modifica
+function modifica(id,modifica) {
+  $.ajax({
+    url :"http://157.230.17.132:3008/todos/" + id,
+    method : "PATCH",
+    data : {
+      text: modifica,
+    },
     success :function (data) {
       $("ul li").remove();
       printAll()

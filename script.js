@@ -11,7 +11,7 @@ $(document).ready(function () {
   $(document).on("click",".fa-clipboard-list",function () {
     console.log("n");
      $(this).parents("li").children("input").removeClass("display-none");
-
+     $(this).parents("li").children(".fa-notes-medical").removeClass("display-none");
 
   })
   $(document).on("keypress","li input",function () {
@@ -21,6 +21,11 @@ $(document).ready(function () {
       modifica(id,nuovoTesto)
       console.log(id + nuovoTesto);
     }
+  })
+  $(document).on("click",".fa-notes-medical",function () {
+    var id = $(this).parents("li").attr("data-id")
+    var nuovoTesto = $(this).parents("li").children("input").val();
+    modifica(id,nuovoTesto)
   })
 })
 

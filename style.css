@@ -3,16 +3,39 @@
   padding: 0;
   box-sizing: border-box;
 }
+#nuovo-impegno {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  height: 50px;
+  background-color: lightGreen;
+}
+.wrap-inserimento {
+  position: relative;
+}
+.fa-plus-circle{
+  font-size: 2em;
+  position: absolute;
+  cursor: pointer;
+  top :10px;
+  right: 0;
+}
 li {
   border-top: 1px solid black;
   min-height: 50px;
   background-color: lightgrey;
   position: relative;
+  cursor: pointer;
 }
 span {
   position: absolute;
   top :0;
   right: 10px;
+}
+.fa-clipboard-list {
+  position: absolute;
+  top :0;
+  right: 20px;
 }
 span {
   cursor: pointer;

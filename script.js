@@ -1,15 +1,16 @@
 $(document).ready(function () {
   printAll();
-  $("button").click(function () {
+  $(".fa-plus-circle").click(function () {
     var impegno = $("#nuovo-impegno").val();
     nuovoImpegno(impegno)
   });
-  $(document).on("click","span",function () {
+  $(document).on("click",".delete",function () {
     var idImpegno = $(this).parent("li").attr("data-id");
     cancella(idImpegno)
   })
-  $(document).on("click","li",function () {
-     $(this).children("input").removeClass("display-none");
+  $(document).on("click",".fa-clipboard-list",function () {
+    console.log("n");
+     $(this).parents("li").children("input").removeClass("display-none");
 
 
   })

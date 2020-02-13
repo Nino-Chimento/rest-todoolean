@@ -3,20 +3,29 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.js" integrity="sha256-v28e/OFwH4PmlZT+LbqfwlMOE1hImPNesl1Ha52e6pk=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>lista</title>
   </head>
   <body>
+
     <h2>lista cose da fare</h2>
     <ul>
     </ul>
-    <input id="nuovo-impegno" type="text" name="" value="" placeholder=" cose da fare">
-    <button type="button" name="button">Salva</button>
+    <div class="wrap-inserimento">
+      <input id="nuovo-impegno" type="text" name="" value="" placeholder=" cose da fare">
+      <i class="fas fa-plus-circle"></i>
+    </div>
+
+
 
     <script id="entry-template" type="text/x-handlebars-template">
 
-      <li data-id = "{{id}}">{{text}} <input class="display-none" type="text" name="" value="" placeholder=" modifica"><span>x</span></li>
+      <li data-id = "{{id}}">{{text}}
+        <input class="display-none" type="text" name="" value="" placeholder=" modifica">
+        <span><i class="fas fa-clipboard-list"></i></span>
+        <span class="delete">x</span></li>
     </script>
     <script src="script.js" charset="utf-8"></script>
   </body>

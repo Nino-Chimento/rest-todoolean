@@ -14,3 +14,6 @@ span {
   top :0;
   right: 10px;
 }
+span {
+  cursor: pointer;
+}

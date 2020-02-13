@@ -4,6 +4,10 @@ $(document).ready(function () {
     var impegno = $("input").val();
     nuovoImpegno(impegno)
   });
+  $(document).on("click","span",function () {
+    var idImpegno = $(this).parent("li").attr("data-id");
+    cancella(idImpegno)
+  })
 })
 // funzione stampa
 function printAll() {
@@ -39,6 +43,20 @@ function nuovoImpegno(testo) {
     },
     error : function (error) {
       alerr("errore"+error)
+    }
+  })
+}
+// funzione cancellazione
+function cancella(id) {
+  $.ajax({
+    url :"http://157.230.17.132:3008/todos/" + id,
+    method : "DELETE",
+    success :function (data) {
+      $("ul li").remove();
+      printAll()
+    },
+    error : function (error) {
+      alert("errore"+error)
     }
   })
 }

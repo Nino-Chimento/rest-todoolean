@@ -1,12 +1,16 @@
 $(document).ready(function () {
   printAll();
   $("button").click(function () {
-    var impegno = $("input").val();
+    var impegno = $("#nuovo-impegno").val();
     nuovoImpegno(impegno)
   });
   $(document).on("click","span",function () {
     var idImpegno = $(this).parent("li").attr("data-id");
     cancella(idImpegno)
+  })
+  $(document).on("click","li",function () {
+    $(this).children("input").removeClass("display-none")
+    console.log("N");
   })
 })
 // funzione stampa
